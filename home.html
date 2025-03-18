@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- home.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Home</title>
+    <!-- Shared CSS for all pages -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Section -->
+    <nav class="main-nav">
+        <ul>
+            <!-- Active class indicates current page -->
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Welcome to My KSU Journey</h1>
+            <p>IT Cybersecurity Undergraduate Student | KSU Owl</p>
+        </section>
+
+        <!-- Interactive Content Section -->
+        <section class="content-grid">
+            <div class="card" onclick="toggleCard(this)">
+                <h2>My Projects</h2>
+                <p>Click to view my academic work</p>
+            </div>
+            <div class="card" onclick="toggleCard(this)">
+                <h2>Achievements</h2>
+                <p>Click to see my accomplishments</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
