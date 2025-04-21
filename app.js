@@ -1,44 +1,63 @@
 // app.js
-// Client-Side JavaScript for All Pages
+document.addEventListener('DOMContentLoaded', () => {
+    // Form submission handling
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
 
-// Toggle Card Functionality for Home Page
-function toggleCard(card) {
-    // Toggle active class for visual feedback
-    card.classList.toggle('active');
-    
-    // Example of dynamic content update
-    if (card.classList.contains('active')) {
-        card.querySelector('p').textContent = 'More details...';
-    } else {
-        card.querySelector('p').textContent = 'Click to expand...';
-    }
-}
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Client-side validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
 
-// Contact Form Validation
-document.getElementById('contactForm')?.addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent default form submission
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    // Basic validation
-    if (!name || !email || !message) {
-        alert('Please fill in all fields');
-        return;
+            if (!name || !email || !message) {
+                showMessage('Please fill in all fields', 'error');
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                showMessage('Please enter a valid email address', 'error');
+                return;
+            }
+
+            try {
+                // Submit form to server
+                const response = await fetch('/submit-form', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams(new FormData(form))
+                });
+
+                if (response.ok) {
+                    showMessage('Message sent successfully!', 'success');
+                    form.reset();
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (error) {
+                showMessage('Error sending message. Please try again.', 'error');
+            }
+        });
     }
-    
-    // Simple email validation
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert('Please enter a valid email address');
-        return;
+
+    // Handle success query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        showMessage('Message sent successfully!', 'success');
     }
-    
-    // If validation passes
-    alert('Form submitted successfully!');
-    this.reset(); // Clear form fields
+
+    function showMessage(text, type) {
+        formMessage.textContent = text;
+        formMessage.className = `form-message ${type}`;
+        setTimeout(() => formMessage.textContent = '', 5000);
+    }
+
+    function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
 });
-
-// Mobile Menu Toggle (Can be added later)
-// Current implementation is responsive through CSS media queries

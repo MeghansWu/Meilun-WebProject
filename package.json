@@ -1,0 +1,26 @@
+{
+  "name": "meilun-webproject",
+  "version": "1.0.0",
+  "description": "Kennesaw State University 2025 Spring IT 3203 Term Project\r Project Title: IT 3203 WebProject-Meilun Wu\r Description: A 3-page portfolio website (Home, About, and Contact) that reflects your journey at KSU and showcases your skills\r Structure: \r     project-root/\r     ├── home.html\r     ├── about.html\r     ├── contact.html\r     ├── styles.css\r     └── app.js\r Usage: \r License: Meilun Wu",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MeghansWu/Meilun-WebProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MeghansWu/Meilun-WebProject/issues"
+  },
+  "homepage": "https://github.com/MeghansWu/Meilun-WebProject#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "nodemailer": "^6.10.1"
+  }
+}
