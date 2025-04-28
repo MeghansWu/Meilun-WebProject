@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/MeghansWu/Meilun-WebProject/issues"
   },
-  "homepage": "https://meghanswu.github.io/Meilun-WebProject/",
+  "homepage": "https://github.com/MeghansWu/Meilun-WebProject#readme",
   "dependencies": {
     "body-parser": "^2.2.0",
     "dotenv": "^16.5.0",
