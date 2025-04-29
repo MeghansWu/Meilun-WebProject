@@ -1,14 +1,13 @@
 # My Portfolio Website  
 ## Features  
-✅ Responsive design  
-✅ Contact form with Node.js backend  
-✅ Clean, modern UI  
+Responsive design  
+Contact form with Node.js backend  
+Clean, modern UI  
 
 ## Setup  
 1. Clone repo  
-2. `npm install`  
-3. Create `.env` file  
-4. `node server.js`  
+2. `npm install`   
+3. `node server.js`  
 
 ## Technologies  
 - HTML5, CSS3, JavaScript  
